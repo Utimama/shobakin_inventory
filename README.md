@@ -1,0 +1,1 @@
+# shobakin_inventory
