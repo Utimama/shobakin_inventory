@@ -5,9 +5,13 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 CATEGORY=(
-    ("Stationary", "Stationary"),
-    ("Electronics", "Electronics"),
-    ("Food", "Food"),
+    ("Ok_Food", "Ok_Food"),
+    ("Oxford", "Oxford"),
+    ("Mamuda", "Mamuda"),
+    ("Pordee_Food_NIGERIA", "Pordee_Food_Nigeria"),
+    ("Beloxy", "Beloxy"),
+    ("New_Bisco", "New_Bisco"),
+    ("Sumal_Yale", "Sumal_Yale"),
 )
 
 class UserProfile(models.Model):
@@ -24,6 +28,7 @@ class Product(models.Model):
     category= models.CharField(max_length= 30, choices=CATEGORY, null=True)
     quantity= models.PositiveIntegerField(null=True)
     description= models.CharField(max_length=300, null=True)
+    price=models.DecimalField(max_digits=20, decimal_places=2)
 
     def __str__(self) -> str:
         return self.name
@@ -32,6 +37,7 @@ class Order(models.Model):
     product= models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
     created_by=models.ForeignKey(User, models.CASCADE, null=True)
     order_quantity= models.PositiveIntegerField(null=True)
+    price=models.DecimalField(max_digits=20, decimal_places=2)
     date= models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:

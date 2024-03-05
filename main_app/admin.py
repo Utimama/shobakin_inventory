@@ -1,19 +1,19 @@
 from django.contrib import admin
 from main_app.models import Product, Order, UserProfile
 
-admin.site.site_header = "Inventory Admin"
+admin.site.site_header = "Shobakin Admin"
 
 
 class ProductAdmin(admin.ModelAdmin):
     model = Product
-    list_display = ("name", "category", "quantity")
+    list_display = ("name", "category", "quantity", "price")
     list_filter = ["category"]
     search_fields = ["name"]
 
 
 class OrderAdmin(admin.ModelAdmin):
     model = Order
-    list_display = ("product", "created_by", "order_quantity", "date")
+    list_display = ("product", "created_by", "order_quantity", "date", "price",)
     list_filter = ["date"]
     search_fields = ["product"]
 
@@ -28,6 +28,7 @@ class UserProfileAdmin(admin.ModelAdmin):
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)
+
 
 
 # Register your models here.
