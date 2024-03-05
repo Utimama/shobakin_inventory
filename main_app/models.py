@@ -28,7 +28,7 @@ class Product(models.Model):
     category= models.CharField(max_length= 30, choices=CATEGORY, null=True)
     quantity= models.PositiveIntegerField(null=True)
     description= models.CharField(max_length=300, null=True)
-    price=models.DecimalField(max_digits=20, decimal_places=2)
+    
 
     def __str__(self) -> str:
         return self.name
@@ -37,7 +37,6 @@ class Order(models.Model):
     product= models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
     created_by=models.ForeignKey(User, models.CASCADE, null=True)
     order_quantity= models.PositiveIntegerField(null=True)
-    price=models.DecimalField(max_digits=20, decimal_places=2)
     date= models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:

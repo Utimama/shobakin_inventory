@@ -6,14 +6,14 @@ admin.site.site_header = "Shobakin Admin"
 
 class ProductAdmin(admin.ModelAdmin):
     model = Product
-    list_display = ("name", "category", "quantity", "price")
+    list_display = ("name", "category", "quantity")
     list_filter = ["category"]
     search_fields = ["name"]
 
 
 class OrderAdmin(admin.ModelAdmin):
     model = Order
-    list_display = ("product", "created_by", "order_quantity", "date", "price",)
+    list_display = ("product", "created_by", "order_quantity", "date")
     list_filter = ["date"]
     search_fields = ["product"]
 

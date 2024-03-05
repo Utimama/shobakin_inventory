@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from main_app.forms import UserRegistry, ProductForm, OrderForm
-from main_app.models import Product, Order, Price
+from main_app.models import Product, Order
 
 
 @login_required
@@ -11,7 +11,6 @@ def index(request):
     users = User.objects.all()[:2]
     orders_adm = Order.objects.all()[:2]
     products = Product.objects.all()[:2]
-    prices= Price.objects.all()[:2]
     reg_users = len(User.objects.all())
     all_prods = len(Product.objects.all())
     all_orders = len(Order.objects.all())
@@ -21,7 +20,6 @@ def index(request):
         "orders_adm": orders_adm,
         "users": users,
         "products": products,
-        "prices": prices,
         "count_users": reg_users,
         "count_products": all_prods,
         "count_orders": all_orders,

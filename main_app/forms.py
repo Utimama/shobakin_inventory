@@ -22,10 +22,10 @@ class UserRegistry(UserCreationForm):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ["name", "category", "quantity", "description", "price"]
+        fields = ["name", "category", "quantity", "description"]
 
 
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ["product", "order_quantity", "price"]
+        fields = ["product", "order_quantity"]
